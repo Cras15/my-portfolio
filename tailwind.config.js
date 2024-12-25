@@ -8,4 +8,13 @@ export default {
     extend: {},
   },
   plugins: [],
+  safelist: [
+    {
+      pattern: /text-(green|blue|orange|red)-(400|500|600|700|800)/,
+      variants: ['hover'], // Eğer hover ile kullanıyorsanız
+    },
+    {
+      pattern: /bg-(green|blue|orange|red)-(100|600)/,
+    },
+  ],
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import myImage from "../assets/image2.png";
 import { socialLinks } from "../data/socialLinks";
+import { projects } from "../data/projects";
 
 function Home() {
   return (
@@ -24,8 +25,24 @@ function Home() {
             Ben, Mert Yener
           </h1>
           <p className="text-xl font-medium lg:text-3xl mt-6">
-            Junior <span className="text-purple-500">Front End</span> Developer
+            Junior <span className="text-purple-500">Full Stack</span> Developer
           </p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 ">
+          {projects.map(({ href, projectName, description, icon, color, image }) => (
+            <a key={href} href={href} target="_blank" className={`text-${color}-400 hover:text-${color}-600 transition-all rounded-2xl hover:py-6 hover:px-4 py-8 px-6 bg-${color}-100 bg-opacity-40 flex flex-col items-center text-center lg:rounded-3xl lg:p-16 hover:lg:p-14`}>
+              <div className="flex flex-row justify-between items-center w-full">
+                <p className={`text-lg font-medium lg:text-2xl text-${color}-500`}>
+                  {projectName}
+                </p>
+                {icon}
+              </div>
+              <p className={`text-lg font-medium lg:text-2xl text-${color}-700 text-left mt-6`}>
+                {description}
+              </p>
+              <img src={image} alt="Proje Görseli" className="mt-6 w-full h-auto rounded-lg" />
+            </a>
+          ))}
         </div>
         <div className="rounded-2xl py-8 px-6 bg-blue-100 bg-opacity-40 flex flex-col items-center text-center lg:rounded-3xl lg:p-16">
           <p className="text-lg font-medium lg:text-2xl text-left self-center">
